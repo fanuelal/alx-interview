@@ -6,9 +6,9 @@ def canUnlockAll(boxes):
 
     if not isinstance(boxes, list):
         return False
-    elif boxes == 0:
+    if boxes == 0:
         return False
-    elif len(boxes) == 0:
+    if len(boxes) == 0:
         return False
     checker = [0]
     list_ing = [i for i in range(len(boxes))]
