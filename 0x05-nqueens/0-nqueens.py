@@ -3,12 +3,29 @@
 import sys
 
 
-def nqueens(num: int):
+def nqueens(n: int, y: int, board):
     """
     will do the backtracking
     """
-    mat = [[0 for x in range(num)] for y in range(num)]
-    print(str(mat))
+    for x in range(n):
+        hold = 0
+        for q in board:
+            if x == q[1]:
+                hold = 1
+                break
+            if y - x == q[0] - q[1]:
+                hold = 1
+                break
+            if x - q[1] == q[0] - y:
+                hold = 1
+                break
+        if hold == 0:
+            board.append([y, x])
+            if y != n - 1:
+                nqueens(n, y + 1, board)
+            else:
+                print(board)
+            del board[-1]
 
 
 if __name__ == "__main__":
@@ -24,4 +41,4 @@ if __name__ == "__main__":
         print("N must be at least 4")
         exit(1)
 
-    nqueens(int(sys.argv[1]))
+    nqueens(int(sys.argv[1]), 0, [])
