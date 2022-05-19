@@ -14,8 +14,9 @@ if (process.argv.length === 3) {
         const ret = () => {
           return new Promise((resolve, reject) => {
             request(char, opt, function (error, res, body) {
-              if (error) { 
-		  console.log(error); } else {
+              if (error) {
+                console.log(error);
+              } else {
                 resolve(body.name);
               }
             });
