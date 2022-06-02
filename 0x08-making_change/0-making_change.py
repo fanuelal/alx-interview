@@ -9,8 +9,8 @@ def makeChange(coins, total):
         return -1
 
     if total <= 0:
-        return 0;
-    
+        return 0
+
     try:
         Min = [float('inf') for i in range(total+1)]
         Min[0] = 0
