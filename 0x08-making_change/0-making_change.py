@@ -5,6 +5,8 @@
 def makeChange(coins, total):
     """Return: fewest number of coins needed
     to meet total"""
+    if (type(total) is not int or type(coins) is not list):
+        return -1
 
     if total <= 0:
         return 0;
