@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """Module island perimeter"""
 
+
 def island_perimeter(grid):
     """that returns the perimeter of the island
     described in grid"""
     row = len(grid)
     col = len(grid[0])
     assert (1 <= row and col <= 100), "length must be between 1 an 100"
-
-
     perimeter = 0
     for i in range(len(grid)):
         for j in range(len(grid[i])):
