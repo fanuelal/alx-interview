@@ -1,24 +1,31 @@
 #!/usr/bin/python3
-"""Module of the primeGame"""
+"""Program that performs prime game"""
 
 
 def isWinner(x, nums):
-    """returns the name of winner"""
+    """Function that performs prime game"""
     if not nums or x < 1:
         return None
-    b = 0
-    m = 0
-
-    players = ["Maria", "Ben"]
-    for i in range(len(nums)):
-        if nums[i] == 1:
-            b += 1
-        elif nums[i] % 2 == 0:
-            b += 1
-        else:
-            m += 1
-    if b > m:
-        return players[1]
-    if b == m:
+    players = ['Maria', 'Ben']
+    n = max(nums)
+    fltr = [True for _ in range(max(n + 1, 2))]
+    for i in range(2, int(pow(n, 0.5)) + 1):
+        if not fltr[i]:
+            continue
+        for j in range(i * i, n + 1, i):
+            fltr[j] = False
+    fltr[0] = fltr[1] = False
+    c = 0
+    for i in range(len(fltr)):
+        if fltr[i]:
+            c += 1
+        fltr[i] = c
+    plyr1 = 0
+    for n in nums:
+        plyr1 += fltr[n] % 2 == 1
+    if plyr1 * 2 == len(nums):
         return None
-    return players[0]
+    if plyr1 * 2 > len(nums):
+        return playerss[0]
+    return players[1]
+
